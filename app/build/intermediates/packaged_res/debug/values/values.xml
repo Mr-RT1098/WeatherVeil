@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent_blue">#42A5F5</color>
+    <color name="bg_gradient_end">#4FC3F7</color>
+    <color name="bg_gradient_start">#1A237E</color>
+    <color name="bubble_received">#2C2C2C</color>
+    <color name="bubble_sent">#6200EE</color>
+    <color name="card_bg">#33FFFFFF</color>
+    <color name="colorAccent">#42A5F5</color>
+    <color name="colorPrimary">#1A237E</color>
+    <color name="colorPrimaryDark">#1A237E</color>
+    <color name="dark_bg">#121212</color>
+    <color name="dark_surface">#1E1E1E</color>
+    <color name="purple_accent">#BB86FC</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#CCFFFFFF</color>
+    <string name="app_name">WeatherVeil</string>
+    <string name="city_not_found">City not found</string>
+    <string name="gcm_defaultSenderId" translatable="false">571604655391</string>
+    <string name="google_api_key" translatable="false">AIzaSyCa4xTb8O4AEoLln0-nPf0bWV5sqXEDMTk</string>
+    <string name="google_app_id" translatable="false">1:571604655391:android:8e204fc8b382ff55ebe42a</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCa4xTb8O4AEoLln0-nPf0bWV5sqXEDMTk</string>
+    <string name="google_storage_bucket" translatable="false">weatherveil-708ed.firebasestorage.app</string>
+    <string name="no_internet">No internet connection</string>
+    <string name="project_id" translatable="false">weatherveil-708ed</string>
+    <string name="search_hint">Search city...</string>
+    <style name="DarkAlertDialog" parent="Theme.MaterialComponents.Dialog.Alert">
+        <item name="colorSurface">@color/dark_surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorPrimary">@color/purple_accent</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+    </style>
+    <style name="Theme.WeatherVeil" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/bg_gradient_start</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+    </style>
+    <style name="Theme.WeatherVeil.Dark" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/dark_bg</item>
+        <item name="colorPrimaryDark">@color/dark_bg</item>
+        <item name="colorAccent">@color/purple_accent</item>
+        <item name="android:windowBackground">@color/dark_bg</item>
+        <item name="android:statusBarColor">@color/dark_bg</item>
+    </style>
+</resources>

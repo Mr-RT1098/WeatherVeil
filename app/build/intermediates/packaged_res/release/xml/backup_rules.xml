@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   This file configures what data is EXCLUDED from cloud backup.
+   We exclude ALL hidden section data for privacy.
+-->
+<full-backup-content>
+    <!-- Exclude the encrypted messages database -->
+    <exclude domain="database" path="secure_messages.db" />
+    <!-- Exclude all media shared in hidden chat -->
+    <exclude domain="file" path="hidden_media/" />
+    <!-- Exclude session/auth data -->
+    <exclude domain="sharedpref" path="secure_session.xml" />
+</full-backup-content>

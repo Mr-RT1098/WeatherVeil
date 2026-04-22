@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Weather App Colors -->
+    <color name="bg_gradient_start">#1A237E</color>
+    <color name="bg_gradient_end">#4FC3F7</color>
+    <color name="accent_blue">#42A5F5</color>
+    <color name="card_bg">#33FFFFFF</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#CCFFFFFF</color>
+
+    <!-- Hidden Chat Colors -->
+    <color name="dark_bg">#121212</color>
+    <color name="dark_surface">#1E1E1E</color>
+    <color name="purple_accent">#BB86FC</color>
+    <color name="bubble_sent">#6200EE</color>
+    <color name="bubble_received">#2C2C2C</color>
+
+    <!-- Status bar -->
+    <color name="colorPrimaryDark">#1A237E</color>
+    <color name="colorPrimary">#1A237E</color>
+    <color name="colorAccent">#42A5F5</color>
+</resources>
