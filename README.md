@@ -53,7 +53,7 @@ WeatherVeil/
 │       └── main/
 │           ├── java/
 │           │   └── ...
-│           │       ├── AuthManager.kt       ← Credentials live here
+│           │       ├── AuthManager.kt
 │           │       ├── WeatherActivity.kt
 │           │       ├── GhostActivity.kt
 │           │       └── ...
@@ -91,7 +91,7 @@ Open the file:
 app/src/main/java/.../AuthManager.kt
 ```
 
-You will find something like this:
+You will find:
 
 ```kotlin
 object AuthManager {
@@ -100,15 +100,13 @@ object AuthManager {
 }
 ```
 
-Replace the values with your own chosen username and password. These are the credentials used to access the Ghost (hidden messaging) layer. **Keep them secret — do not commit real credentials to a public repo.**
-
-> ⚠️ **Important:** Since this is a public repo, consider moving these values to a `local.properties` file or using Android's `BuildConfig` fields injected at build time, so they never appear in version control.
+Replace with your own username and password. These are the credentials used to access the Ghost layer.
 
 ---
 
 ### Step 3 — Add Your OpenWeatherMap API Key
 
-In your project, find where the API key is used (likely in a constants file or directly in the weather fetch logic) and replace the placeholder:
+Find where the API key is used and replace the placeholder:
 
 ```kotlin
 const val WEATHER_API_KEY = "your_openweathermap_api_key_here"
@@ -123,9 +121,8 @@ Get your free key at: https://openweathermap.org/api
 1. Go to [Firebase Console](https://console.firebase.google.com/) and create a new project
 2. Add an Android app — use your own package name
 3. Download the `google-services.json` file Firebase gives you
-4. Place it in the `app/` directory (replacing any existing one)
+4. Place it in the `app/` directory
 5. In Firebase Console → Realtime Database → Create database
-6. Set up Security Rules (see the Security section below)
 
 ---
 
@@ -145,35 +142,15 @@ Open the project in Android Studio, let Gradle sync, then hit **Run**. Install o
 
 ---
 
-- Move credentials to `local.properties`:
+## Security
 
-```properties
-# local.properties (this file should be in .gitignore)
-ghost.username=mySecretUser
-ghost.password=mySecretPassword
-```
+WeatherVeil is built with a security-first mindset:
 
-- Read them at build time in `build.gradle`:
-
-```gradle
-buildConfigField "String", "GHOST_USERNAME", "\"${localProperties['ghost.username']}\""
-buildConfigField "String", "GHOST_PASSWORD", "\"${localProperties['ghost.password']}\""
-```
-
-- Access in code:
-
-```kotlin
-val username = BuildConfig.GHOST_USERNAME
-val password = BuildConfig.GHOST_PASSWORD
-```
-
-## Security Checklist
-
-- [ ] Firebase rules locked down (not open read/write)
-- [ ] `google-services.json` in `.gitignore`
-- [ ] AuthManager credentials moved out of source code
-- [ ] OpenWeatherMap API key not hardcoded in a public file
-- [ ] Firebase Authentication enabled (recommended — so only signed-in users can access the database)
+- **AES-256 Encryption via SQLCipher** — All messages are encrypted locally. Even with physical device access, messages cannot be read without the key.
+- **Screenshot Blocking** — The app prevents screen captures inside the Ghost layer, protecting sensitive conversations from shoulder-surfing and screen recording.
+- **Firebase Realtime Database** — Messages are synced securely in the cloud with Firebase's infrastructure.
+- **Custom Authentication** — The Ghost layer is protected by a custom credential system via AuthManager, keeping the hidden interface inaccessible to unintended users.
+- **WorkManager** — Background operations are handled safely, keeping network activity isolated from the UI layer.
 
 ---
 
